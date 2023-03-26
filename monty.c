@@ -39,7 +39,6 @@ void push_monty(stack_t **stack, unsigned int line_number)
 			free(new);
 			track_fail = true;
 			no_int_err(line_number);
-			free_op_tok(op_token);
 			return;
 		}
 	}
