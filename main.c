@@ -42,7 +42,11 @@ int main(int argc, char **argv)
 		if (execute(op_token, &stack,line_no))
 			exit(EXIT_FAILURE);
 		else
-			break;
+		{
+			free_op_tok(op_token);
+			free_stack(stack); 
+			exit(EXIT_FAILURE);
+		}
 
 		free_op_tok(op_token);
 	}
