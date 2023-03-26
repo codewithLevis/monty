@@ -76,8 +76,8 @@ void queue_monty(stack_t **stack, unsigned int line_number);
 int err_Usage(void);
 int err_Open_File(char *file);
 int malloc_err(void);
-void pop_err(int line_no);
-void no_int_err(int line_no);
+void pop_err(unsigned int line_no);
+void no_int_err(unsigned int line_no);
 void err_acc_name(char *name, unsigned int line_no);
 
 /*Line_Handlers*/

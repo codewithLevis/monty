@@ -35,7 +35,7 @@ int malloc_err(void)
  *@line_no: position at opcode
  * Return: void
 */
-void pop_err(int line_no)
+void pop_err(unsigned int line_no)
 {
 	fprintf(stderr, "L%u: can't pop an empty stack\n", line_no);
 }
@@ -45,7 +45,7 @@ void pop_err(int line_no)
  *@line_no: position at opcode
  * Return: void
 */
-void no_int_err(int line_no)
+void no_int_err(unsigned int line_no)
 {
 	fprintf(stderr, "L%u: usage: push integer\n", line_no);
 }
