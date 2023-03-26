@@ -40,10 +40,7 @@ int main(int argc, char **argv)
 		if (verify == 1)
 			exit(EXIT_FAILURE);
 		else if (verify == -1)
-		{
-			free_op_tok(op_token);
-			break;
-		}
+			exit(EXIT_FAILURE);
 		free_op_tok(op_token);
 	}
 	free_stack(&stack);

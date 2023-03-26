@@ -25,7 +25,12 @@ int execute(char **op, stack_t **stack, unsigned int line_no, FILE *fp)
 	_monty_ptr(stack, line_no);
 
 	if (track_fail)
+	{
+		free_op_tok(op_token);
+		free_stack(stack);
+		fclose(fp);
 		return (-1);
+	}
 	return (0);
 }
 
