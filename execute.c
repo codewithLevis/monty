@@ -4,9 +4,10 @@
  * @op: op_tokens
  * @line_no: line number
  * @stack: pointer to the stack
+ *@fp: file stream
  *Return: 0, 1 or -1
 */
-int execute(char **op, stack_t **stack, unsigned int line_no)
+int execute(char **op, stack_t **stack, unsigned int line_no, FILE *fp)
 {
 	void (*_monty_ptr)(stack_t **, unsigned int);
 
@@ -17,6 +18,7 @@ int execute(char **op, stack_t **stack, unsigned int line_no)
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_no, op[0]);
 		free_op_tok(op);
 		free_stack(stack);
+		fclose(fp);
 		return (1);
 	}
 

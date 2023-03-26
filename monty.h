@@ -95,6 +95,6 @@ void free_stack(stack_t **stack);
 
 /*Execute*/
 void (*search_func(char *opcode))(stack_t **, unsigned int);
-int execute(char **op_token, stack_t **stack, unsigned int line_number);
+int execute(char **op_t, stack_t **stack, unsigned int line_no, FILE *fp);
 
 #endif /*_MONTY_H_*/

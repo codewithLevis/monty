@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 			free_op_tok(op_token);
 			continue;
 		}
-		verify = execute(op_token, &stack, line_no);
+		verify = execute(op_token, &stack, line_no, fp);
 		if (verify == 1)
 			exit(EXIT_FAILURE);
 		else if (verify == -1)
