@@ -51,7 +51,7 @@ void push_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall - prints all the values on the stack
+ * pall_monty - prints all the values on the stack
  *  starting from the top of the stack
  * @stack: pointer to stack
  * @line_number: line at the opcode file
@@ -70,7 +70,7 @@ void pall_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint - prints the value at the top of the stack
+ * pint_monty - prints the value at the top of the stack
  *  followed by a new line.
  * @stack: pointer to stack
  * @line_number: line at the opcode file
@@ -91,7 +91,7 @@ void pint_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop - removes the top element of the stack
+ * pop_monty - removes the top element of the stack
  * @stack: stack pointer
  * @line_number: line at the opcode file
  * Return: void
@@ -116,12 +116,12 @@ void pop_monty(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap - swaps the top two elements of the stack
+ * swap_monty - swaps the top two elements of the stack
  * @stack: stack pointer
  * @line_number: line at the opcode file
  * Return: void
 */
-void swap(stack_t **stack, unsigned int line_number)
+void swap_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp, *temp2 = (*stack)->next;
 
