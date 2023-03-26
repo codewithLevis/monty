@@ -18,7 +18,6 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		exit(err_Usage());
 	fp = fopen(argv[1], "r");
-
 	if (fp == NULL)
 		exit(err_Open_File(argv[1]));
 	if (!init_stack(&stack))
@@ -48,5 +47,6 @@ int main(int argc, char **argv)
 		free_op_tok(op_token);
 	}
 	free_stack(&stack);
+	fclose(fp);
 	return (0);
 }
