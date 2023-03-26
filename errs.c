@@ -37,7 +37,7 @@ int malloc_err(void)
 */
 void pop_err(int line_no)
 {
-	fprintf(stderr, "L%u: can't pchar, value out of range\n", line_no);
+	fprintf(stderr, "L%u: can't pop an empty stack\n", line_no);
 }
 
 /**
