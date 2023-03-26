@@ -4,24 +4,27 @@
  * @op: op_tokens
  * @line_no: line number
  * @stack: pointer to the stack
+ *Return: 0, 1 or -1
 */
-bool execute(char **op, stack_t **stack, unsigned int line_no)
+int execute(char **op, stack_t **stack, unsigned int line_no)
 {
 	void (*_monty_ptr)(stack_t **, unsigned int);
+
 	_monty_ptr = search_func(op[0]);
 
 	if (_monty_ptr == NULL)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_no, op[0]);
-		free_token(op);
+		free_op_tok(op);
 		free_stack(stack);
-		return (true);
+		return (1);
 	}
 
 	_monty_ptr(stack, line_no);
 
 	if (track_fail)
-		return (false);
+		return (-1);
+	return (0);
 }
 
 /**

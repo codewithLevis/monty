@@ -17,5 +17,5 @@ void err_acc_name(char *name, unsigned int line_no)
 	if (strcmp(name, "out_of_range"))
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_no);
 	else
-		fprintf(stderr, "L%u: can't %s, stack too short\n", name, line_no);
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line_no, name);
 }

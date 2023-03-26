@@ -2,7 +2,7 @@
 
 /**
  *  nop_monty - doesn’t do anything
- * @stack - pointer to data type stack
+ * @stack: pointer to data type stack
  * @line_number: current line in opcode
 */
 void nop_monty(stack_t **stack, unsigned int line_number)
@@ -14,7 +14,7 @@ void nop_monty(stack_t **stack, unsigned int line_number)
 /**
  * pchar_monty - prints the char at the top of
  * the stack, followed by a new line
- * @stack - pointer to data type stack
+ * @stack: pointer to data type stack
  * @line_number: current line in opcode
 */
 void pchar_monty(stack_t **stack, unsigned int line_number)
@@ -43,7 +43,7 @@ void pchar_monty(stack_t **stack, unsigned int line_number)
 /**
  * pstr_monty - prints the string starting at
  * the top of the stack, followed by a new line
- * @stack - pointer to data type stack
+ * @stack: pointer to data type stack
  * @line_number: current line in opcode
 */
 void pstr_monty(stack_t **stack, unsigned int line_number)
@@ -61,7 +61,7 @@ void pstr_monty(stack_t **stack, unsigned int line_number)
 
 /**
  * rotl_monty - rotates the stack to the top
- * @stack - pointer to data type stack
+ * @stack: pointer to data type stack
  * @line_number: current line in opcode
 */
 void rotl_monty(stack_t **stack, unsigned int line_number)
@@ -89,12 +89,13 @@ void rotl_monty(stack_t **stack, unsigned int line_number)
 
 /**
  * rotr_monty - rotates the stack to the bottom
- * @stack - pointer to data type stack
+ * @stack: pointer to data type stack
  * @line_number: current line in opcode
 */
 void rotr_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head, *tail;
+	int i;
 
 	(void)line_number;
 
@@ -106,7 +107,7 @@ void rotr_monty(stack_t **stack, unsigned int line_number)
 		while (tail->next != NULL)
 			tail = tail->next;
 
-		for (int i = 0; i < 2; i++)
+		for (i = 0; i < 2; i++)
 		{
 			tail->next = head;
 			head->prev = tail;

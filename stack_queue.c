@@ -4,7 +4,7 @@
  * init_stack - set the stack_t to STACK
  * as default operation in beginnng of program
  * @stack: pointer to member stack_t
- * Return: bool  
+ * Return: bool
 */
 bool init_stack(stack_t **stack)
 {
@@ -33,7 +33,7 @@ bool init_stack(stack_t **stack)
 */
 void stack_monty(stack_t **stack, unsigned int line_number)
 {
-        (*stack)->n = STACK;
+	(*stack)->n = STACK;
 
 	(void)line_number;
 }
@@ -46,7 +46,7 @@ void stack_monty(stack_t **stack, unsigned int line_number)
 */
 void queue_monty(stack_t **stack, unsigned int line_number)
 {
-        (*stack)->n = QUEUE;
+	(*stack)->n = QUEUE;
 
 	(void)line_number;
 }
@@ -63,6 +63,7 @@ int shift_default(stack_t *stack)
 		return (STACK);
 	else if (stack->n == QUEUE)
 		return (QUEUE);
+	return (2);
 }
 
 /**

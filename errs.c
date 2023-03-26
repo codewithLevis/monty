@@ -12,6 +12,7 @@ int err_Usage(void)
 
 /**
  * err_Open_File - prints file open error
+ *@file: second argument
  * Return: failure
 */
 int err_Open_File(char *file)
@@ -31,6 +32,7 @@ int malloc_err(void)
 }
 /**
  * pop_err - pop error
+ *@line_no: position at opcode
  * Return: void
 */
 void pop_err(int line_no)
@@ -40,6 +42,7 @@ void pop_err(int line_no)
 
 /**
  * no_int_err - no integer error
+ *@line_no: position at opcode
  * Return: void
 */
 void no_int_err(int line_no)

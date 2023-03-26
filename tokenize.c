@@ -56,7 +56,7 @@ int parse(char ***op_tok, char *line)
  * @delim: DELIMS
  * Return: bool
 */
-bool only_delim(char *line, char* delim)
+bool only_delim(char *line, char *delim)
 {
 	int i, j;
 
@@ -102,10 +102,10 @@ int is_delim(char ch, char *delims)
 */
 int word_count(char *line, char *delims)
 {
-	int count = 0;
+	int i, count = 0;
 	bool in_word = false;
 
-	for (int i = 0; line[i] != '\0'; i++)
+	for (i = 0; line[i] != '\0'; i++)
 	{
 		if (!in_word && !is_delim(line[i], delims))
 		{
@@ -122,7 +122,7 @@ int word_count(char *line, char *delims)
  * get_word - generates words for the opcode line
  * @ptr: pointer to words struct
  * @line: opcode line
- * @delims: DELIMS
+ * @delim: DELIMS
  * Return: void
 */
 void get_word(words *ptr, char *line, char *delim)

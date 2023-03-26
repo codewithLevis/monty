@@ -11,14 +11,12 @@ int main(int argc, char **argv)
 {
 	FILE *fp = NULL;
 	char op_line[BUF];
-	char **op_token = NULL;
 	unsigned int line_no = 0;
-	int valid;
+	int valid, verify;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
 		exit(err_Usage());
-
 	fp = fopen(argv[1], "r");
 
 	if (fp == NULL)
@@ -26,7 +24,7 @@ int main(int argc, char **argv)
 	if (!init_stack(&stack))
 		exit(malloc_err());
 
-	while (fgets(op_line, BUF, argv[1]) != NULL)
+	while (fgets(op_line, BUF, fp) != NULL)
 	{
 		line_no++;
 		valid = parse(&op_token, op_line);
@@ -39,17 +37,16 @@ int main(int argc, char **argv)
 			free_op_tok(op_token);
 			continue;
 		}
-		if (execute(op_token, &stack,line_no))
+		verify = execute(op_token, &stack, line_no);
+		if (verify == 1)
 			exit(EXIT_FAILURE);
-		else
+		else if (verify == -1)
 		{
 			free_op_tok(op_token);
-			free_stack(stack); 
-			exit(EXIT_FAILURE);
+			break;
 		}
-
 		free_op_tok(op_token);
 	}
-	free_stack(stack);         
+	free_stack(&stack);
 	return (0);
 }

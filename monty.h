@@ -8,8 +8,8 @@
 #define DELIMS " \t\n\r\a\b"
 #define STACK 0
 #define QUEUE 1
-bool track_fail = false;
-char **op_token = NULL;
+bool track_fail;
+char **op_token;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -95,6 +95,6 @@ void free_stack(stack_t **stack);
 
 /*Execute*/
 void (*search_func(char *opcode))(stack_t **, unsigned int);
-bool execute(char **op_token, stack_t **stack, unsigned int line_number);
+int execute(char **op_token, stack_t **stack, unsigned int line_number);
 
 #endif /*_MONTY_H_*/

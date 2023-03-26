@@ -17,7 +17,7 @@ void add_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	ptr->next->n += ptr->n;
-	pop(stack, line_number);
+	pop_monty(stack, line_number);
 }
 
 /**
@@ -38,7 +38,7 @@ void sub_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	temp->next->n -= temp->n;
-	pop(stack, line_number);
+	pop_monty(stack, line_number);
 }
 
 /**
@@ -65,7 +65,7 @@ void div_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	ptr->next->n /= ptr->n;
-	pop(stack, line_number);
+	pop_monty(stack, line_number);
 }
 
 /**
@@ -86,11 +86,11 @@ void mul_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	temp->next->n *= temp->n;
-	pop(stack, line_number);
+	pop_monty(stack, line_number);
 }
 
 /**
- *mod_monty - computes the rest of the 
+ *mod_monty - computes the rest of the
  *division of the second top element of
  *the stack by the top element of the stack
  *@stack: pointer to type stack_t
@@ -114,5 +114,5 @@ void mod_monty(stack_t **stack, unsigned int line_number)
 	}
 
 	temp->next->n %= temp->n;
-	pop(stack, line_number);
+	pop_monty(stack, line_number);
 }
