@@ -50,3 +50,53 @@ void queue_monty(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 }
+
+
+/**
+ * shift_default - confirm for change btw stack and queue
+ * @stack: pointer to data type stack_t
+ * Return: 0 or 1
+*/
+int shift_default(stack_t *stack)
+{
+	if (stack->n == STACK)
+		return (STACK);
+	else if (stack->n == QUEUE)
+		return (QUEUE);
+}
+
+/**
+*add_node - adds node at the beginning or end
+* @stack: pointer to data type stack_t
+*@new: pointer to new member of data type stack_t
+*/
+void add_node(stack_t **stack, stack_t **new)
+{
+	stack_t *temp;
+	stack_t *new_p = (*new);
+
+	/*Add node at the beginning*/
+	if (shift_default(*stack) == STACK)
+	{
+		temp = (*stack)->next;
+		new_p->next = temp;
+		new_p->prev = NULL;
+		if (temp != NULL)
+		temp->prev = new_p;
+		(*stack)->next = new_p;
+	}
+	/**
+	* It is 0
+	* Add node to the end
+	* Queue
+	*/
+	else
+	{
+		temp = *stack;
+		while (temp->next != NULL)
+		temp = temp->next;
+		temp->next = new_p;
+		new_p->prev = temp;
+		new_p->next = NULL;
+	}
+}
