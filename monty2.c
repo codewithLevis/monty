@@ -95,26 +95,21 @@ void rotl_monty(stack_t **stack, unsigned int line_number)
 void rotr_monty(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head, *tail;
-	int i;
+
 
 	(void)line_number;
 
 	if ((*stack)->next && (*stack)->next->next)
 	{
 		head = (*stack)->next;
-		tail = head;
+		tail = (*stack)->next;
 
 		while (tail->next != NULL)
 			tail = tail->next;
 
-		for (i = 0; i < 2; i++)
-		{
-			tail->next = head;
-			head->prev = tail;
-			tail = head;
-			head = head->prev;
-			tail->prev = NULL;
-			(*stack)->next = tail;
-		}
+		tail->prev->next = NULL;
+		(*stack)->next = tail;
+		tail->next = head;
+		head->prev = tail;
 	}
 }
